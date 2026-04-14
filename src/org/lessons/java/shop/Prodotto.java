@@ -19,7 +19,11 @@ public class Prodotto {
         this.iva = iva;
     }
     
-    public float showPrice() {
+    public float showBasePrice() {
         return this.prezzo;
+    }
+
+    public float showFullPrice() {
+        return (this.prezzo + (this.prezzo * this.iva / 100));
     }
 }
