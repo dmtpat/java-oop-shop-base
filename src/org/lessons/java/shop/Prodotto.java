@@ -11,11 +11,15 @@ public class Prodotto {
     public int iva;
 
     public Prodotto(String nome, String descrizione, int prezzo, int iva) {
-        Random rand= new Random();
+        Random rand = new Random();
         this.codice = rand.nextInt();
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.iva  = iva;
+        this.iva = iva;
+    }
+    
+    public float showPrice() {
+        return this.prezzo;
     }
 }
