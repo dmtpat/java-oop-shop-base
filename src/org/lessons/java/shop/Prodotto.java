@@ -26,4 +26,8 @@ public class Prodotto {
     public float showFullPrice() {
         return (this.prezzo + (this.prezzo * this.iva / 100));
     }
+
+    public String showFullName(){
+        return (this.codice + "-" + this.nome);
+    }
 }
