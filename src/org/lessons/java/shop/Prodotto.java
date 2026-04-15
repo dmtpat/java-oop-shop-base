@@ -19,7 +19,7 @@ public class Prodotto {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.iva = iva;
+        this.iva = iva.setScale(2,RoundingMode.DOWN);
     }
     public Prodotto(String nome, String descrizione, BigDecimal prezzo) {
         Random rand = new Random();
@@ -27,7 +27,7 @@ public class Prodotto {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.iva = new BigDecimal(0.04);
+        this.iva = new BigDecimal(0.04).setScale(2,RoundingMode.DOWN);
     }
     //! Getter setter
 
@@ -54,17 +54,19 @@ public class Prodotto {
     public BigDecimal GetPrezzo() {
         return this.prezzo;
     }
-    public void SetPrezzo( String prezzo) {
-        if (prezzo != null) {
-            this.prezzo = new BigDecimal(prezzo);
+    public void SetPrezzo( BigDecimal prezzo) {
+        if (prezzo.compareTo(new BigDecimal(0)) >= 0) {
+            this.prezzo = prezzo.setScale(2,RoundingMode.DOWN);
         }
     }
     public BigDecimal GetIva() {
         return this.iva;
     }
-    public void SetIva( String iva) {
-        if (iva != null) {
-            this.iva = new BigDecimal(iva);
+
+    public void SetIva(BigDecimal iva) {
+        
+        if (iva.compareTo(new BigDecimal(0.04))== 0 ||iva.compareTo(new BigDecimal(0.1))==0||iva.compareTo(new BigDecimal(0.22))==0) {
+            this.iva = iva.setScale(2,RoundingMode.DOWN);
         }
     }
 
