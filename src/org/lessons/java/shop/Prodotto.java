@@ -6,12 +6,13 @@ import java.util.Random;
 
 public class Prodotto {
 
-    public int codice;
-    public String nome;
-    public String descrizione;
-    public BigDecimal prezzo; //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
-    public BigDecimal iva;
+    private int codice;
+    private String nome;
+    private String descrizione;
+    private BigDecimal prezzo; //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
+    private BigDecimal iva;
 
+    //! constructors
     public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         Random rand = new Random();
         this.codice = rand.nextInt();
@@ -28,7 +29,46 @@ public class Prodotto {
         this.prezzo = prezzo;
         this.iva = new BigDecimal(0.04);
     }
-    
+    //! Getter setter
+
+    public int GetCodice() {
+        return this.codice;
+    }
+
+    public String GetNome() {
+        return this.nome;
+    }
+    public void SetNome( String nome) {
+        if (nome != null) {
+            this.nome = nome;
+        }
+    }
+    public String GetDescrizione() {
+        return this.descrizione;
+    }
+    public void SetDescrizione( String descrizione) {
+        if (descrizione != null) {
+            this.descrizione = descrizione;
+        }
+    }
+    public BigDecimal GetPrezzo() {
+        return this.prezzo;
+    }
+    public void SetPrezzo( String prezzo) {
+        if (prezzo != null) {
+            this.prezzo = new BigDecimal(prezzo);
+        }
+    }
+    public BigDecimal GetIva() {
+        return this.iva;
+    }
+    public void SetIva( String iva) {
+        if (iva != null) {
+            this.iva = new BigDecimal(iva);
+        }
+    }
+
+    //! Other methods
     public BigDecimal showBasePrice() {//? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
         return this.prezzo;
     }
