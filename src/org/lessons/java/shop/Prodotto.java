@@ -7,10 +7,10 @@ public class Prodotto {
     public int codice;
     public String nome;
     public String descrizione;
-    public int prezzo;
+    public Double prezzo; //? Why??
     public int iva;
 
-    public Prodotto(String nome, String descrizione, int prezzo, int iva) {
+    public Prodotto(String nome, String descrizione, Double prezzo, int iva) {
         Random rand = new Random();
         this.codice = rand.nextInt();
         this.nome = nome;
@@ -19,11 +19,11 @@ public class Prodotto {
         this.iva = iva;
     }
     
-    public float showBasePrice() {
+    public Double showBasePrice() {//? Why??
         return this.prezzo;
     }
 
-    public float showFullPrice() {
+    public Double showFullPrice() { //? Why??
         return (this.prezzo + (this.prezzo * this.iva / 100));
     }
 
