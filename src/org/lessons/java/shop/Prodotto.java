@@ -1,5 +1,7 @@
 package org.lessons.java.shop;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class Prodotto {
@@ -7,10 +9,10 @@ public class Prodotto {
     public int codice;
     public String nome;
     public String descrizione;
-    public Double prezzo; //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
-    public int iva;
+    public BigDecimal prezzo; //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
+    public BigDecimal iva;
 
-    public Prodotto(String nome, String descrizione, Double prezzo, int iva) {
+    public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         Random rand = new Random();
         this.codice = rand.nextInt();
         this.nome = nome;
@@ -19,12 +21,12 @@ public class Prodotto {
         this.iva = iva;
     }
     
-    public Double showBasePrice() {//? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
+    public BigDecimal showBasePrice() {//? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
         return this.prezzo;
     }
 
-    public Double showFullPrice() { //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
-        return (this.prezzo + (this.prezzo * this.iva / 100));
+    public BigDecimal showFullPrice() { //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
+        return (this.prezzo.add(this.prezzo.multiply(this.iva))).setScale(2,RoundingMode.DOWN);
     }
 
     public String showFullName(){
