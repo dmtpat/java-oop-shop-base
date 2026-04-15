@@ -7,7 +7,7 @@ public class Prodotto {
     public int codice;
     public String nome;
     public String descrizione;
-    public Double prezzo; //? Why??
+    public Double prezzo; //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
     public int iva;
 
     public Prodotto(String nome, String descrizione, Double prezzo, int iva) {
@@ -19,11 +19,11 @@ public class Prodotto {
         this.iva = iva;
     }
     
-    public Double showBasePrice() {//? Why??
+    public Double showBasePrice() {//? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
         return this.prezzo;
     }
 
-    public Double showFullPrice() { //? Why??
+    public Double showFullPrice() { //? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
         return (this.prezzo + (this.prezzo * this.iva / 100));
     }
 
