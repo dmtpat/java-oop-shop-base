@@ -20,6 +20,14 @@ public class Prodotto {
         this.prezzo = prezzo;
         this.iva = iva;
     }
+    public Prodotto(String nome, String descrizione, BigDecimal prezzo) {
+        Random rand = new Random();
+        this.codice = rand.nextInt();
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.prezzo = prezzo;
+        this.iva = new BigDecimal(0.04);
+    }
     
     public BigDecimal showBasePrice() {//? Why not float?? err: The constructor Prodotto(String, String, double, int) is undefined
         return this.prezzo;
